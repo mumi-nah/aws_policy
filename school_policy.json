@@ -1,0 +1,51 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowTeachersReadWrite",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::school_bucket",
+        "arn:aws:s3:::school_bucket/*"
+      ]
+    }
+  ]
+}
+
+# Student
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowStudentsReadOnly",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::school_bucket",
+        "arn:aws:s3:::school_bucket/*"
+      ]
+    }
+  ]
+}
+
+# Admin
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AdministratorFullAccess",
+      "Effect": "Allow",
+      "Action": "*",
+      "Resource": "*"
+    }
+  ]
+}
